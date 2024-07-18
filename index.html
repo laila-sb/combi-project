@@ -3,32 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sub Track</title>
+    <title>On Track</title>
   </head>
   <body>
 
-  <h1>Sub Track</h1>
+  <h1>On Track</h1>
   <h2>Keep track of all your subscriptions in one place</h2>
-  <div>
-    <h3>Personal information</h3>
-    <label>Enter your first name:</label>
-    <input type="text" /><br>
-    <label>Enter your last name:</label>
-    <input type="text" /><br>
-    <label>Enter your email:</label>
-    <input type="email" />
+  <div class="personal-info">
+    <h3>Personal information:</h3>
+    <label>First name:</label>
+    <input id="first-name-input" type="text" /><br>
+    <label>Last name:</label>
+    <input id="last-name-input"type="text" /><br>
+    <label>Email:</label>
+    <input id="email-input"type="email" /><br>
+    <button id='submit-button1' type="submit">Submit</button>
   </div>
 
   <div>
-    <h3>Enter your subscription information here</h3>
+    <h3>Enter your subscription information:</h3>
     <label>Subscription name:</label>
     <input type="text" /><br>
-    <label>subscription type</label>
+    <label>Subscription type</label>
     <input type="dropdown list" /><br>
     <label>start date:</label>
     <input type="date" /><br>
     <label>end date:</label>
-    <input type="date" />
+    <input type="date" /><br>
+    <button id='submit-button2' type="submit">Submit</button>
+
   </div>
 </body>
 <script src="index.js"></script>
