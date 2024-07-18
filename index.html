@@ -2,47 +2,54 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>On Track</title>
   </head>
   <body>
+    <h1>On Track</h1>
+    <h2>Keep track of all your subscriptions in one place</h2>
+    <div class="personal-info">
+      <h3>Personal information:</h3>
+      <label>First name:</label>
+      <input id="first-name-input" type="text" /><br />
+      <span id="first-name-feedback"></span><br />
+      <label>Last name:</label>
+      <input id="last-name-input" type="text" /><br />
+      <span id="lastname-feedback"></span><br />
+      <label>Email:</label>
+      <input
+        id="email-input"
+        onblur="validEmail()"
+        type="email"
+        name="email"
+        required
+      /><br />
+      <span id="email-feedback"></span><br />
 
-  <h1>On Track</h1>
-  <h2>Keep track of all your subscriptions in one place</h2>
-  <div class="personal-info">
-    <h3>Personal information:</h3>
-    <label>First name:</label>
-    <input id="first-name-input" type="text" /><br>
-    <label>Last name:</label>
-    <input id="last-name-input"type="text" /><br>
-    <label>Email:</label>
-    <input id="email-input"type="email" /><br>
-    <div id="email-valid"></div>
-    <span id="email-feedback"></span>
-    <button id='submit-button1' type="submit">Submit</button>
-  </div>
+      <button id="submit-button" onclick="submitPersonalInfo()">Submit</button>
+    </div>
 
-  <div>
-    <h3>Enter your subscription information:</h3>
-    <label>Subscription name:</label>
-    <input type="text" /><br>
-    <label>Subscription type</label>
-    <input type="dropdown list" /><br>
-    <label>start date:</label>
-    <input type="date" /><br>
-    <label>end date:</label>
-    <input type="date" /><br>
-    <button id='add-button' type="submit">Add Subscription</button>
+    <div>
+      <h3>Enter your subscription information:</h3>
+      <label>Subscription name:</label>
+      <input type="text" /><br />
+      <label>Subscription type</label>
+      <input type="dropdown list" /><br />
+      <label>start date:</label>
+      <input type="date" /><br />
+      <label>end date:</label>
+      <input type="date" /><br />
+      <button id="add-button" type="submit">Add Subscription</button>
+    </div>
 
-  </div>
-
-  <div>
-    <h3>Your current subscriptions</h3>
-    <ul id="list-container">
+    <div>
+      <h3>Your current subscriptions</h3>
+      <ul id="list-container">
         <li></li>
         <li></li>
-    </ul>
-  </div>
-</body>
-<script src="index.js"></script>
+      </ul>
+    </div>
+  </body>
+  <script src="index.js"></script>
 </html>
