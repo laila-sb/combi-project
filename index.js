@@ -5,29 +5,55 @@ const submitButton1 = document.getElementById("submit-button");
 const addButton = document.getElementById("add-button");
 const listContainer = document.getElementById("list-container");
 
-function submitPersonalInfo() {
-  // const firstNameError = document.getElementById('first-name-feedback')
-  // const firstLastError = document.getElementById('last-name-feedback')
+const isFirstNameValid = false;
+const isLastNameValid = false;
+const isEmailValid = false;
 
-  if (!InputFirstName.value && !InputLastName.value && !InputEmail.value) {
-    alert("Please fill in all required information");
+function validFirstName() {
+  const firstNameError = document.getElementById("first-name-feedback");
+  if (!InputFirstName.value) {
+    firstNameError.innerHTML = "Must enter a valid first name";
+    isFirstNameValid = false;
+  } else {
+    isFirstNameValid = true;
   }
 }
 
+function validLastName() {
+  const lastNameError = document.getElementById("last-name-feedback");
+
+  if (!InputLastName.value) {
+    lastNameError.innerHTML = "Must Enter a valid Last name";
+    isLastNameValid = false;
+  } else {
+    isLastNameValid = true;
+  }
+}
 
 function validEmail() {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const email = InputEmail.value;
-  const span = document.createElement("span");
   const emailError = document.getElementById("email-feedback");
 
   if (!email.match(emailRegex)) {
     emailError.innerHTML = "Invalid email entered";
     // alert("please enter a valid email");
-    return false;
+    isEmailValid = false;
+  } else {
+    isEmailValid = true;
   }
-  return true;
 }
+
+function submitPersonalInfo() {
+  if (isFirstNameValid && isLastNameValid && isEmailValid == true) {
+    alert(`Thanks ${InputFirstName}`);
+    console.log("good to go");
+  } else {
+    alert("Please enter all required information");
+  }
+}
+
+submitButton1.addEventListener("click", (submitPersonalInfo));
 
 //function to check if first + last names entered
 // function to check if email is valid

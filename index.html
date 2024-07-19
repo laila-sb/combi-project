@@ -12,11 +12,15 @@
     <div class="personal-info">
       <h3>Personal information:</h3>
       <label>First name:</label>
-      <input id="first-name-input" type="text" /><br />
+      <input
+        id="first-name-input"
+        type="text"
+        onblur="validFirstName()"
+      /><br />
       <span id="first-name-feedback"></span><br />
       <label>Last name:</label>
-      <input id="last-name-input" type="text" /><br />
-      <span id="lastname-feedback"></span><br />
+      <input id="last-name-input" type="text" onblur="validLastName()" /><br />
+      <span id="last-name-feedback"></span><br />
       <label>Email:</label>
       <input
         id="email-input"
@@ -27,7 +31,7 @@
       /><br />
       <span id="email-feedback"></span><br />
 
-      <button id="submit-button" onclick="submitPersonalInfo()">Submit</button>
+      <button id="submit-button">Submit</button>
     </div>
 
     <div>
