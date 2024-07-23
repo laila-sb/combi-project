@@ -9,6 +9,11 @@ let isFirstNameValid = false;
 let isLastNameValid = false;
 let isEmailValid = false;
 
+const subName = document.getElementById("sub-name");
+const subType = document.getElementById("sub-type");
+const startDate = document.getElementById("start-date");
+const endDate = document.getElementById("end-date");
+
 function validFirstName() {
   const firstNameError = document.getElementById("first-name-feedback");
   if (!InputFirstName.value) {
@@ -47,9 +52,9 @@ function validEmail() {
   }
 }
 
-
-submitButton1.addEventListener("click", (e) => {  // e is the call back function that will be exce when the event occurs
-  e.preventDefault();
+submitButton1.addEventListener("click", (event) => {
+  // e is the call back function that will be exce when the event occurs
+  event.preventDefault();
   validFirstName();
   validLastName();
   validEmail();
@@ -57,15 +62,43 @@ submitButton1.addEventListener("click", (e) => {  // e is the call back function
     alert("Please enter all required information");
   } else {
     alert(`Thanks ${InputFirstName.value}`);
-    console.log("good to go");
+    console.log("signed in");
   }
 });
 
-
 //function to add subscription to subs inventory
 
-function addToList() {
-  if (submit);
+let subList = [];
+
+function addToList(name, type) {
+  let existing = subList.find(
+    (sub) => sub.name.toLowerCase() === name.toLowerCase()
+  );
+  if (existing) {
+    alert("You have already added that subscription");
+    return;
+  }
+  subList.push({ name, type });
+  updateSubs();
 }
 
+function updateSubs(){
+  listContainer.innerHTML = ''
+
+  subList.forEach((sub) => {
+    const list = document.createElement('li')
+    list.textContent = `${sub.name} and ${sub.type}`;
+    listContainer.appendChild(list)
+  })
+  }
+addButton.addEventListener("click", () => {
+  const name = subName.value;
+  const type = subType.value;
+  if (name && type) {
+    addToList(name, type);
+
+  } else {
+    alert("please fill in both name and type of sub");
+  }
+});
 
